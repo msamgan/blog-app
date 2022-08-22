@@ -1,9 +1,14 @@
+import Head from "next/head"
 import Layout from "../../components/layout"
 import Separator from "../../components/separator"
 
 export default function Page({ page }) {
     return (
         <Layout>
+            <Head>
+                <title>{`${process.env.APP_NAME} - ${page.title}`}</title>
+                <meta name="description" content={page.meta.meta_description}></meta>
+            </Head>
             <div className="container-fluid">
                 <div className="row mt-4">
                     <div className="col-md-6 col-sm-12 mx-auto">

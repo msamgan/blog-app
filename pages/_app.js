@@ -16,6 +16,11 @@ function MyApp({ Component, pageProps }) {
             }}
         >
             <Head>
+                <meta name="author" content="msamgan" />
+                <meta name="twitter:site" content="@msamgank"></meta>
+                <meta name="og:site_name" content="Code By Samgan"></meta>
+                <meta name="og:type" content="website"></meta>
+                <meta name="og:locale" content="en_US"></meta>
                 <Favicons />
             </Head>
             <Component {...pageProps} />
@@ -24,8 +29,8 @@ function MyApp({ Component, pageProps }) {
 }
 
 /**
- * A component that renders the favicons.           
- * @returns None           
+ * A component that renders the favicons.
+ * @returns None
  */
 export function Favicons() {
     return (

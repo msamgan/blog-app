@@ -51,11 +51,6 @@ export function HomeHead() {
                 name="description"
                 content="samgan's experience in the field of web and application development including but not limited to php, node, python and mysql etc."
             ></meta>
-            <meta name="author" content="msamgan"></meta>
-            <meta name="twitter:site" content="@msamgank"></meta>
-            <meta name="og:site_name" content="Code By Samgan"></meta>
-            <meta name="og:type" content="website"></meta>
-            <meta name="og:locale" content="en_US"></meta>
         </Head>
     )
 }

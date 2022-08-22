@@ -1,3 +1,4 @@
+import Head from "next/head"
 import Image from "next/image"
 import { useContext, useEffect } from "react"
 import Layout from "../components/layout"
@@ -21,6 +22,22 @@ export default function Post({ post, headings, posts }) {
 
     return (
         <Layout>
+            <Head>
+                <title>{`${process.env.APP_NAME} - ${post.title}`}</title>
+                <meta name="description" content={post.meta.meta_description}></meta>
+                <meta name="twitter:title" content={post.meta.twitter_title} />
+                <meta name="og:title" content={post.meta.opengraph_title} />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:description" content={post.meta.twitter_description} />
+                <meta
+                    name="twitter:image"
+                    content={`${process.env.BACKEND_BASE_URL}${post.meta.twitter_image}`}
+                />
+                <meta
+                    name="og:image"
+                    content={`${process.env.BACKEND_BASE_URL}${post.meta.opengraph_image}`}
+                ></meta>
+            </Head>
             <div className="container-fluid">
                 <div className="row mt-4">
                     <div className="col-md-8 col-sm-12 mx-auto">
