@@ -5,7 +5,7 @@ import PostList from "../components/post.list"
 import Separator from "../components/separator"
 import Tags from "../components/tags"
 import { Context } from "../context"
-import { dateFormat } from "../utils/methods"
+import { dateFormat, slugify, stripHTML } from "../utils/methods"
 
 export default function Post({ post, headings, posts }) {
     const { setPostList } = useContext(Context)
@@ -16,7 +16,6 @@ export default function Post({ post, headings, posts }) {
      * @returns None
      */
     useEffect(() => {
-        localStorage.setItem("postList", JSON.stringify(posts))
         setPostList(posts)
     }, [])
 
@@ -62,7 +61,7 @@ export default function Post({ post, headings, posts }) {
                                                     <li key={heading}>
                                                         <a
                                                             className="tbc-link"
-                                                            href="#what-is-laravel-pint"
+                                                            href={`#${slugify(stripHTML(heading))}`}
                                                             dangerouslySetInnerHTML={{
                                                                 __html: heading
                                                             }}
@@ -97,6 +96,12 @@ export async function getServerSideProps(context) {
     let post = (
         await (await fetch(`${process.env.API_BASE_URL}v1/posts/post/${context.params.postSlug}`)).json()
     ).package
+
+    if (post === undefined) {
+        return {
+            notFound: true
+        }
+    }
 
     let headings = post.body.match(/<h2>(.*?)<\/h2>/g)
 

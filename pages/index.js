@@ -1,3 +1,4 @@
+import Head from "next/head"
 import { useContext, useEffect } from "react"
 import Introduction from "../components/introduction"
 import Layout from "../components/layout"
@@ -10,9 +11,9 @@ export default function Home({ posts }) {
     const { setPostList } = useContext(Context)
 
     /**
-     * This function is called when the component is mounted.           
-     * It sets the postList state to the posts in the local storage.           
-     * @returns None           
+     * This function is called when the component is mounted.
+     * It sets the postList state to the posts in the local storage.
+     * @returns None
      */
     useEffect(() => {
         localStorage.setItem("postList", JSON.stringify(posts))
@@ -21,6 +22,7 @@ export default function Home({ posts }) {
 
     return (
         <Layout>
+            <HomeHead />
             <Search></Search>
             <Introduction />
             <Separator />
@@ -34,6 +36,27 @@ export default function Home({ posts }) {
                 </div>
             </div>
         </Layout>
+    )
+}
+
+/**
+ * A React component that renders the head of the home page.
+ * @returns A React component that renders the head of the home page.
+ */
+export function HomeHead() {
+    return (
+        <Head>
+            <title>{`${process.env.APP_NAME} - Home`}</title>
+            <meta
+                name="description"
+                content="samgan's experience in the field of web and application development including but not limited to php, node, python and mysql etc."
+            ></meta>
+            <meta name="author" content="msamgan"></meta>
+            <meta name="twitter:site" content="@msamgank"></meta>
+            <meta name="og:site_name" content="Code By Samgan"></meta>
+            <meta name="og:type" content="website"></meta>
+            <meta name="og:locale" content="en_US"></meta>
+        </Head>
     )
 }
 
