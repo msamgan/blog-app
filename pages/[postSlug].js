@@ -7,6 +7,9 @@ import Separator from "../components/separator"
 import Tags from "../components/tags"
 import { Context } from "../context"
 import { dateFormat, slugify, stripHTML } from "../utils/methods"
+import hljs from "highlight.js"
+import javascript from "highlight.js/lib/languages/javascript"
+import "highlight.js/styles/github.css"
 
 export default function Post({ post, headings, posts }) {
     const { setPostList } = useContext(Context)
@@ -18,6 +21,7 @@ export default function Post({ post, headings, posts }) {
      */
     useEffect(() => {
         setPostList(posts)
+        hljs.registerLanguage("javascript", javascript)
     }, [])
 
     return (

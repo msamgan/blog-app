@@ -36,6 +36,12 @@ li {
     box-sizing: border-box;
 }
 
+pre {
+    background: #f6f2f2a6;
+    padding: 16px;
+    border-radius: 10px;
+}
+
 
 @media (prefers-color-scheme: light) {
     html {
