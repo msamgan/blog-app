@@ -20,8 +20,7 @@ export default function Introduction() {
                             <div className="col">
                                 <div className="card-block px-2">
                                     <p className={`${style.introText} card-text`}>
-                                        Hi, I am Samgan, I know the adds are bit annoying but i hope you
-                                        understand. Talking about me, I excel at solving complex problems
+                                        Hi, I am Samgan. Talking about me, I excel at solving complex problems
                                         involving logic and step by step breakdown of the problem. Besides, to
                                         develop complex algorithms, I specialize in problem framing, systems
                                         design, and product development strategy. Sometimes I also enjoy public
