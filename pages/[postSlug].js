@@ -63,7 +63,7 @@ export default function Post({ post, headings, posts }) {
                         <Tags tags={post.Tags} />
                         <h1>{post.title}</h1>
                         <p>
-                            {dateFormat(post.updated_at)} | {post.page_view} views
+                            {dateFormat(post.updated_at)} {/* | {post.page_view} views */}
                         </p>
                         <Separator />
                         <div className="row">
