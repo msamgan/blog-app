@@ -6,9 +6,9 @@ const nextConfig = {
         domains: ["secure.gravatar.com", "cdn.ko-fi.com", "codebysamgan.com"]
     },
     env: {
-        APP_NAME: "Samgan's Grimoire",
-        API_BASE_URL: "http://127.0.0.1:5100/",
-        BACKEND_BASE_URL: "https://codebysamgan.com"
+        APP_NAME: process.env.NEXT_PUBLIC_APP_NAME,
+        API_BASE_URL: process.env.NEXT_PUBLIC_API_BASE_URL,
+        BACKEND_BASE_URL: process.env.NEXT_PUBLIC_BACKEND_BASE_URL,
     }
 }
 
