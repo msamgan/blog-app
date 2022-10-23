@@ -4,6 +4,7 @@ import "../styles/globals.css"
 import { Context } from "../context/index"
 import { useState } from "react"
 import Head from "next/head"
+import Script from "next/script"
 
 function MyApp({ Component, pageProps }) {
     const [postList, setPostList] = useState([])
@@ -23,6 +24,21 @@ function MyApp({ Component, pageProps }) {
                 <meta name="og:locale" content="en_US"></meta>
                 <Favicons />
             </Head>
+
+            <Script
+                src="https://www.googletagmanager.com/gtag/js?id=UA-107487964-1"
+                strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+                {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){window.dataLayer.push(arguments);}
+                gtag('js', new Date());
+
+                gtag('config', 'UA-107487964-1');
+            `}
+            </Script>
+
             <Component {...pageProps} />
         </Context.Provider>
     )
