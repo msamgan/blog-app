@@ -2,12 +2,28 @@ import "bootstrap/dist/css/bootstrap.css"
 import "../styles/globals.css"
 
 import { Context } from "../context/index"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Head from "next/head"
+import * as gtag from "../lib/gtag"
+
+import { useRouter } from "next/router"
 import Script from "next/script"
 
 function MyApp({ Component, pageProps }) {
     const [postList, setPostList] = useState([])
+    const router = useRouter()
+
+    useEffect(() => {
+        const handleRouteChange = (url) => {
+            gtag.pageview(url)
+        }
+        router.events.on("routeChangeComplete", handleRouteChange)
+        router.events.on("hashChangeComplete", handleRouteChange)
+        return () => {
+            router.events.off("routeChangeComplete", handleRouteChange)
+            router.events.off("hashChangeComplete", handleRouteChange)
+        }
+    }, [router.events])
 
     return (
         <Context.Provider
@@ -26,18 +42,29 @@ function MyApp({ Component, pageProps }) {
             </Head>
 
             <Script
-                src="https://www.googletagmanager.com/gtag/js?id=UA-107487964-1"
+                async
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4235318980971035"
+                crossorigin="anonymous"
+            ></Script>
+            {/* Global Site Tag (gtag.js) - Google Analytics */}
+            <Script
                 strategy="afterInteractive"
+                src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`}
             />
-            <Script id="google-analytics" strategy="afterInteractive">
-                {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){window.dataLayer.push(arguments);}
-                gtag('js', new Date());
-
-                gtag('config', 'UA-107487964-1');
-            `}
-            </Script>
+            <Script
+                id="gtag-init"
+                strategy="afterInteractive"
+                dangerouslySetInnerHTML={{
+                    __html: `
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+                        gtag('config', '${gtag.GA_TRACKING_ID}', {
+                        page_path: window.location.pathname,
+                        });
+                    `
+                }}
+            />
 
             <Component {...pageProps} />
         </Context.Provider>
