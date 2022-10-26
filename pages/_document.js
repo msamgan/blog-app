@@ -7,7 +7,7 @@ export default function Document() {
             <body>
                 <Main />
                 <NextScript />
-
+                
                 {/* Global Site Tag (gtag.js) - Google Analytics */}
                 <script
                     dangerouslySetInnerHTML={{

@@ -10,6 +10,7 @@ import { dateFormat, slugify, stripHTML } from "../utils/methods"
 import hljs from "highlight.js"
 import javascript from "highlight.js/lib/languages/javascript"
 import "highlight.js/styles/github.css"
+import "giscus"
 
 export default function Post({ post, headings, posts }) {
     const { setPostList } = useContext(Context)
@@ -98,6 +99,28 @@ export default function Post({ post, headings, posts }) {
                                 className={headings ? "col-md-8" : "col-md-12"}
                                 dangerouslySetInnerHTML={{ __html: post.body }}
                             ></div>
+                        </div>
+                        <Separator />
+                        <div className="row">
+                            <div className="col-md-12">
+                                <div className="">
+                                    <giscus-widget
+                                        id="comments"
+                                        src="https://giscus.app/client.js"
+                                        repo="msamgan/blog-comments"
+                                        repo-id="R_kgDOIT1xSg"
+                                        category="General"
+                                        category-id="DIC_kwDOIT1xSs4CSMzg"
+                                        mapping="title"
+                                        strict="0"
+                                        reactions-enabled="1"
+                                        emit-metadata="0"
+                                        input-position="bottom"
+                                        theme="light"
+                                        lang="en"
+                                    ></giscus-widget>
+                                </div>
+                            </div>
                         </div>
                         <Separator />
                         <PostList></PostList>
