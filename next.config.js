@@ -3,7 +3,7 @@ const nextConfig = {
     reactStrictMode: true,
     swcMinify: true,
     images: {
-        domains: ["secure.gravatar.com", "cdn.ko-fi.com", "codebysamgan.com"]
+        domains: ["secure.gravatar.com", "cdn.ko-fi.com", "codebysamgan.com", "localhost"]
     },
     env: {
         APP_ENV: process.env.NEXT_PUBLIC_APP_ENV,
