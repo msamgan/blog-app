@@ -6,23 +6,23 @@ export default function Footer() {
             <footer className="py-3 my-4">
                 <ul className="nav justify-content-center border-bottom pb-3 mb-3">
                     <li className="nav-item">
-                        <Link href="/">
-                            <a className="nav-link px-2 text-muted">Home</a>
+                        <Link href="/" className="nav-link px-2 text-muted">
+                            Home
                         </Link>
                     </li>
                     <li className="nav-item">
-                        <Link href="/page/about">
-                            <a className="nav-link px-2 text-muted">About</a>
+                        <Link href="/page/about" className="nav-link px-2 text-muted">
+                            About
                         </Link>
                     </li>
                     <li className="nav-item">
-                        <Link href="/page/uses">
-                            <a className="nav-link px-2 text-muted">Users</a>
+                        <Link href="/page/uses" className="nav-link px-2 text-muted">
+                            Users
                         </Link>
                     </li>
                     <li className="nav-item">
-                        <Link href="/page/tags">
-                            <a className="nav-link px-2 text-muted">Tags</a>
+                        <Link href="/page/tags" className="nav-link px-2 text-muted">
+                            Tags
                         </Link>
                     </li>
                 </ul>

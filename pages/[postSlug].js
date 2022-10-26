@@ -45,7 +45,7 @@ export default function Post({ post, headings, posts }) {
             <div className="container-fluid">
                 <div className="row mt-4">
                     <div className="col-md-8 col-sm-12 mx-auto">
-                        {post.featured_image && (
+                        {/* {post.featured_image && (
                             <div
                                 style={{
                                     display: "flex",
@@ -59,7 +59,7 @@ export default function Post({ post, headings, posts }) {
                                     height={400}
                                 />
                             </div>
-                        )}
+                        )} */}
                         <Tags tags={post.Tags} />
                         <h1>{post.title}</h1>
                         <p>
