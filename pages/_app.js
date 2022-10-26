@@ -24,7 +24,12 @@ function MyApp({ Component, pageProps }) {
                 <meta name="og:locale" content="en_US"></meta>
                 <Favicons />
             </Head>
-
+            <script
+                async
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4235318980971035"
+                crossorigin="anonymous"
+                strategy="afterInteractive"
+            ></script>
             <Script
                 src="https://www.googletagmanager.com/gtag/js?id=UA-107487964-1"
                 strategy="afterInteractive"
